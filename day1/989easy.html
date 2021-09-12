@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*** @param {number[]} num
+        * @param {number} k
+        * @return {number[]}
+         */
+        var addToArrayForm = function (num, k) {
+            var res = [];
+            var temp = [];
+            var sum = 0;
+            for (var i = num.length - 1; i >= 0; i--) {
+                sum = num[i] + k % 10;
+                k = Math.floor(k / 10);
+                if (sum >= 10) {
+                    k++;
+                    sum -= 10;
+                }
+                temp.push(sum);
+            }
+
+            for (; k > 0; k = Math.floor(k / 10)) {
+                temp.push(k % 10);
+            }
+
+            for (var i = temp.length - 1; i >= 0; i--) {
+                res.push(temp.pop());
+            }
+
+            return res;
+        };
+    </script>
+</body>
+
+</html>

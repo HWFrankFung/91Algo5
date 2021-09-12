@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+        * @param {string} s
+        * @param {character} c
+        * @return {number[]}
+         */
+        var shortestToChar = function (s, c) {
+            let arr = []
+            let res = []
+            for (var i = 0; i < s.length; i++) {
+                if (s[i] === c) arr.push(i)
+            }
+
+            var dis = 0
+            for (var i = 0; i < s.length; i++) {
+                dis = Math.abs(i - arr[0])
+                for (var j = 1; j < arr.length; j++) {
+                    dis = Math.min(dis, Math.abs(i - arr[j]))
+                }
+                res.push(dis)
+            }
+            return res
+        };
+    </script>
+</body>
+
+</html>
